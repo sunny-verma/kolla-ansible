@@ -576,7 +576,7 @@ neutron_bgp_router_id: "1.1.1.1"
 neutron_bridge_name: "{{ 'br-dvs' if neutron_plugin_agent == 'vmware_dvs' else 'br-ex' }}"
 # Comma-separated type of enabled ml2 type drivers
 # For Nuage it type_drivers is vxlan
-neutron_type_drivers: "vxlan"
+neutron_type_drivers: "{{ 'vxlan' if enable_nuage | bool else 'flat,vlan,vxlan' }}"
 # Comma-separated types of tenant networks (should be listed in 'neutron_type_drivers')
 # NOTE: for ironic this list should also contain 'flat'
 neutron_tenant_network_types: "vxlan"

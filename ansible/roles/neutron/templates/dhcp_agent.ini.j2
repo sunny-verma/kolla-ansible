@@ -11,6 +11,7 @@ enable_metadata_network = True
 dhcp_driver = vmware_nsx.plugins.dvs.dhcp.Dnsmasq
 use_namespaces = True
 ovs_use_veth = False
+
 {% if vmware_dvs_dhcp_override_mac != '' %}
 dhcp_override_mac = {{ vmware_dvs_dhcp_override_mac }}
 {% endif %}

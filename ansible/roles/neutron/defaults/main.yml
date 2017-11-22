@@ -67,7 +67,7 @@ neutron_services:
   nuage-plugin:
     container_name: "neutron_server"
     image: "{{ neutron_server_image_full }}"
-    enabled: "{{ neutron_plugin_agent == "nuage" }}"
+    enabled: "{{ neutron_plugin_agent == 'nuage' }}"
     group: "neutron-server"
     host_in_groups: "{{ inventory_hostname in groups['neutron-server'] }}"
     volumes:

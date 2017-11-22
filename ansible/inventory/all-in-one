@@ -262,22 +262,22 @@ nova
 control
 
 [neutron-dhcp-agent:children]
-neutron
+#neutron
 
 [neutron-l3-agent:children]
-neutron
+#neutron
 
 [neutron-lbaas-agent:children]
-neutron
+#neutron
 
 [neutron-metadata-agent:children]
-neutron
+#neutron
 
 [neutron-vpnaas-agent:children]
-neutron
+#neutron
 
 [neutron-bgp-dragent:children]
-neutron
+#neutron
 
 # Ceph
 [ceph-mon:children]
