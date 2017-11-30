@@ -89,7 +89,7 @@ database_port: "3306"
 # Docker options
 ####################
 docker_registry_email:
-docker_registry:
+docker_registry: ""
 docker_namespace: "kolla"
 docker_registry_username:
 
@@ -688,14 +688,14 @@ opendaylight_allowed_network_types: '"flat", "vlan", "vxlan"'
 # Nuage
 ######################
 nuage_mechanism_driver: "nuage"
-nuage_service_plugin: "NuagePortAttributes,NuageAPI,NuageL3"
+nuage_service_plugins: "NuagePortAttributes,NuageAPI,NuageL3"
 nuage_extension_drivers: "nuage_subnet, nuage_port, port_security"
 nuage_integration_bridge: "alubr0"
-nuage_default_net_partition: "Nuage_Partition1"
-nuage_server_ip_port: ":8443"
+nuage_net_partition: "Nuage_Partition1"
+nuage_server_ip_port: "192.168.122.145:8443"
 nuage_server_auth: "csproot:csproot"
 nuage_organization: "csp"
 nuage_auth_resource: "/me"
 nuage_serverssl: True
 nuage_base_uri: "/nuage/api/v5_0"
-nuage_cms_id: ""
+nuage_cms_id: "74450f51-cbc8-4937-8d6c-4119281271bf"
