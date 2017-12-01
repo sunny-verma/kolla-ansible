@@ -2,9 +2,7 @@
 # additional groups are for more control of the environment.
 [control]
 # These hostname must be resolvable from your deployment host
-control01
-#control02
-#control03
+control01     ansible_user=root ansible_become=True
 
 # The above can also be specified as follows:
 #control[01:03]     ansible_user=kolla
@@ -12,25 +10,23 @@ control01
 # The network nodes are where your l3-agent and loadbalancers will run
 # This can be the same as a host in the control group
 [network]
-control01
-#network01
-#network02
+#control01     ansible_user=root ansible_become=True
 
 [compute]
-compute01
+compute01     ansible_user=root ansible_become=True
 
 [monitoring]
-control01
-
+#control01     ansible_user=root ansible_become=True
 # When compute nodes and control nodes use different interfaces,
 # you can specify "api_interface" and other interfaces like below:
 #compute01 neutron_external_interface=eth0 api_interface=em1 storage_interface=em1 tunnel_interface=em1
 
 [storage]
-compute01
+compute01     ansible_user=root ansible_become=True
 
 [deployment]
-localhost       ansible_connection=local
+#control01     ansible_user=root ansible_become=True
+#localhost       ansible_connection=local
 
 [baremetal:children]
 control
@@ -46,10 +42,10 @@ haproxy
 
 [chrony:children]
 control
-network
+#network
 compute
-storage
-monitoring
+#storage
+#monitoring
 
 [collectd:children]
 compute
@@ -359,7 +355,7 @@ manila
 manila
 
 [manila-share:children]
-network
+#network
 
 [manila-data:children]
 manila
@@ -533,30 +529,30 @@ watcher
 
 # Senlin
 [senlin-api:children]
-senlin
+#senlin
 
 [senlin-engine:children]
-senlin
+#senlin
 
 # Searchlight
 [searchlight-api:children]
-searchlight
+#searchlight
 
 [searchlight-listener:children]
-searchlight
+#searchlight
 
 # Octavia
 [octavia-api:children]
-octavia
+#octavia
 
 [octavia-health-manager:children]
-octavia
+#octavia
 
 [octavia-housekeeping:children]
-octavia
+#octavia
 
 [octavia-worker:children]
-octavia
+#octavia
 
 # Designate
 [designate-api:children]
@@ -593,8 +589,8 @@ compute
 skydive
 
 [skydive-agent:children]
-compute
-network
+#compute
+#network
 
 # Tacker
 [tacker-server:children]

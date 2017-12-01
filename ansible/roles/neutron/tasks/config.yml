@@ -148,13 +148,14 @@
     neutron_server: "{{ neutron_services[service_name] }}"
   merge_configs:
     sources:
-      - "{{ role_path }}/templates/nuage-plugin.ini.j2"
-    dest: "{{ node_config_directory }}/{{ service_name }}/plugins/nuage/plugin.ini"
+      - "{{ role_path }}/templates/nuage_plugin.ini.j2"
+    dest: "{{ node_config_directory }}/{{ service_name }}/plugin.ini"
     mode: "0660"
   register: nuage_plugin_ini
   when:
     - neutron_server.enabled | bool
     - neutron_plugin_agent in ['nuage']
+    - neutron_server.host_in_groups | bool
   notify:
     - "Restart {{ service_name }} container"
 

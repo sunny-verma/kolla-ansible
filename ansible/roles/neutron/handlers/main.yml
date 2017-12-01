@@ -29,6 +29,7 @@
       or nsx_ini | changed
       or policy_json | changed
       or neutron_server_container | changed
+      or nuage_plugin_ini | changed
 
 - name: Restart neutron-openvswitch-agent container
   vars:
